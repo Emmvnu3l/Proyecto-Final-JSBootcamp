@@ -4,6 +4,10 @@ Proyecto final del curso **Desarrollo de Aplicaciones Full Stack JavaScript Trai
 
 Aplicación completa de un blog de noticias con registro/login de usuarios, creación de noticias con imagen, sistema de likes/dislikes, comentarios, filtrado por categoría y ordenamiento por fecha.
 
+## Demo en vivo
+
+**URL del despliegue:** [https://proyecto-final-jsbootcamp-production.up.railway.app/](https://proyecto-final-jsbootcamp-production.up.railway.app/)
+
 ---
 
 ## Tecnologías
