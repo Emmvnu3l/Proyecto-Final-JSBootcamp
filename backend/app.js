@@ -1,0 +1,31 @@
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const multer = require('multer');
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/news', require('./routes/newsRoutes'));
+app.use('/api/comments', require('./routes/commentRoutes'));
+app.use('/api/likes', require('./routes/likeRoutes'));
+app.use('/api/categories', require('./routes/categoryRoutes'));
+
+app.get('/api/health', (req, res) => {
+  res.json({ message: 'Backend funcionando correctamente.' });
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  if (err instanceof multer.MulterError) {
+    return res.status(400).json({ message: err.message });
+  }
+  res.status(500).json({ message: err.message || 'Error interno del servidor.' });
+});
+
+module.exports = app;
