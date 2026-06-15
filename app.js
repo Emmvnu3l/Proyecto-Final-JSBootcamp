@@ -22,6 +22,9 @@ app.use('/api/comments', require('./routes/commentRoutes'));
 app.use('/api/likes', require('./routes/likeRoutes'));
 app.use('/api/categories', require('./routes/categoryRoutes'));
 
+// Servir frontend estático
+app.use(express.static(path.join(__dirname, 'frontend')));
+
 app.get('/api/health', (req, res) => {
   res.json({ message: 'Backend funcionando correctamente.' });
 });
