@@ -35,7 +35,7 @@ function renderNews() {
       ${newsData.category_name ? `<span class="badge bg-secondary me-2">${newsData.category_name}</span>` : ''}
       Por ${newsData.author_username || newsData.author} · ${new Date(newsData.created_at).toLocaleDateString()}
     </div>
-    ${newsData.image_url ? `<img src="http://localhost:3000${newsData.image_url}" alt="${newsData.title}" class="img-fluid">` : ''}
+    ${newsData.image_url ? `<img src="${newsData.image_url}" alt="${newsData.title}" class="img-fluid">` : ''}
     <div class="content">${newsData.content.replace(/\n/g, '<br>')}</div>
   `;
 }
